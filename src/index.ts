@@ -11,7 +11,7 @@ import '../style/index.css';
 
 const FACTORY = 'Editor';
 const ICON_CLASS = 'jp-PythonIcon';
-const PALETTE_CATEGORY = 'File Editor';
+const PALETTE_CATEGORY = 'Text Editor';
 
 namespace CommandIDs {
   export const createNew = 'fileeditor:create-new-python-file';
