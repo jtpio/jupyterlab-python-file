@@ -7,6 +7,8 @@ Create Python Files from JupyterLab
 
 ![screenshot](./doc/screenshot.png)
 
+![screenshot2](./doc/screenshot2.png)
+
 ## Prerequisites
 
 * JupyterLab 0.35
