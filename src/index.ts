@@ -1,5 +1,5 @@
 import {
-  JupyterLab, JupyterLabPlugin
+  JupyterFrontEnd, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import { ICommandPalette } from '@jupyterlab/apputils';
@@ -17,7 +17,7 @@ namespace CommandIDs {
   export const createNew = 'fileeditor:create-new-python-file';
 };
 
-const extension: JupyterLabPlugin<void> = {
+const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-python-file',
   autoStart: true,
   requires: [
@@ -29,7 +29,7 @@ const extension: JupyterLabPlugin<void> = {
     ICommandPalette,
   ],
   activate: (
-    app: JupyterLab,
+    app: JupyterFrontEnd,
     browserFactory: IFileBrowserFactory,
     launcher: ILauncher,
     menu: IMainMenu | null,
@@ -41,20 +41,18 @@ const extension: JupyterLabPlugin<void> = {
       label: args => (args['isPalette'] ? 'New Python File' : 'Python File'),
       caption: 'Create a new Python file',
       iconClass: args => (args['isPalette'] ? '' : ICON_CLASS),
-      execute: args => {
+      execute: async args => {
         let cwd = args['cwd'] || browserFactory.defaultBrowser.model.path;
-        return commands
+        const model = await commands
           .execute('docmanager:new-untitled', {
             path: cwd,
             type: 'file',
             ext: 'py'
-          })
-          .then(model => {
-            return commands.execute('docmanager:open', {
-              path: model.path,
-              factory: FACTORY
-            });
           });
+        return commands.execute('docmanager:open', {
+          path: model.path,
+          factory: FACTORY
+        });
       }
     });
 

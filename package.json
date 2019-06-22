@@ -30,14 +30,14 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.19.1",
-    "@jupyterlab/filebrowser": "^0.19.1",
-    "@jupyterlab/launcher": "^0.19.1",
-    "@jupyterlab/mainmenu": "^0.8.1"
+    "@jupyterlab/application": "^1.0.0-rc.0",
+    "@jupyterlab/filebrowser": "^1.0.0-rc.0",
+    "@jupyterlab/launcher": "^1.0.0-rc.0",
+    "@jupyterlab/mainmenu": "^1.0.0-rc.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "typescript": "~3.1.1"
+    "typescript": "~3.5.2"
   },
   "jupyterlab": {
     "extension": true
