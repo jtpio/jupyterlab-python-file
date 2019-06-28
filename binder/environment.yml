@@ -2,5 +2,7 @@ name: jupyterlab-python-file
 channels:
 - conda-forge
 dependencies:
-- jupyterlab=0.35
 - python=3.7
+- pip
+- pip:
+  - jupyterlab=1.0

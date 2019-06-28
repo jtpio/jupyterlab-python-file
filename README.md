@@ -11,7 +11,7 @@ Create Python Files from JupyterLab
 
 ## Prerequisites
 
-* JupyterLab 0.35
+* JupyterLab 1.0
 
 ## Installation
 
@@ -26,7 +26,7 @@ For a development install (requires npm version 4 or later), do the following in
 ```bash
 npm install
 npm run build
-jupyter labextension link .
+jupyter labextension install .
 ```
 
 To rebuild the package and the JupyterLab app:
