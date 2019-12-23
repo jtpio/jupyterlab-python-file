@@ -3,8 +3,11 @@ import {
 } from '@jupyterlab/application';
 
 import { ICommandPalette } from '@jupyterlab/apputils';
+
 import { ILauncher } from '@jupyterlab/launcher';
+
 import { IFileBrowserFactory } from '@jupyterlab/filebrowser';
+
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
 import '../style/index.css';
@@ -37,12 +40,14 @@ const extension: JupyterFrontEndPlugin<void> = {
   ) => {
     const { commands } = app;
 
-    commands.addCommand(CommandIDs.createNew, {
+    const command = CommandIDs.createNew;
+
+    commands.addCommand(command, {
       label: args => (args['isPalette'] ? 'New Python File' : 'Python File'),
       caption: 'Create a new Python file',
       iconClass: args => (args['isPalette'] ? '' : ICON_CLASS),
       execute: async args => {
-        let cwd = args['cwd'] || browserFactory.defaultBrowser.model.path;
+        const cwd = args['cwd'] || browserFactory.defaultBrowser.model.path;
         const model = await commands
           .execute('docmanager:new-untitled', {
             path: cwd,
@@ -59,7 +64,7 @@ const extension: JupyterFrontEndPlugin<void> = {
     // add to the launcher
     if (launcher) {
       launcher.add({
-        command: CommandIDs.createNew,
+        command,
         category: 'Other',
         rank: 1
       });
@@ -68,16 +73,16 @@ const extension: JupyterFrontEndPlugin<void> = {
     // add to the palette
     if (palette) {
       palette.addItem({
-        command: CommandIDs.createNew,
+        command,
         args: { isPalette: true},
         category: PALETTE_CATEGORY
       });
     }
 
     // add to the menu
-    menu.fileMenu.newMenu.addGroup([{ command: CommandIDs.createNew }], 30);
-
-    console.log("JupyterLab extension jupyterlab-python-file is activated!");
+    if (menu) {
+      menu.fileMenu.newMenu.addGroup([{ command }], 30);
+    }
   }
 };
 
