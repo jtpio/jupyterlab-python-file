@@ -11,7 +11,7 @@ Create Python Files from JupyterLab
 
 ## Prerequisites
 
-* JupyterLab 1.0
+* JupyterLab 1.0+
 
 ## Installation
 
