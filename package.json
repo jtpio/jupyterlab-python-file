@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-python-file",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Create Python Files from JupyterLab",
   "keywords": [
     "jupyter",
@@ -30,14 +30,14 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jupyterlab/application": "^1.0.0",
-    "@jupyterlab/filebrowser": "^1.0.0",
-    "@jupyterlab/launcher": "^1.0.0",
-    "@jupyterlab/mainmenu": "^1.0.0"
+    "@jupyterlab/application": "^2.0.0",
+    "@jupyterlab/filebrowser": "^2.0.0",
+    "@jupyterlab/launcher": "^2.0.0",
+    "@jupyterlab/mainmenu": "^2.0.0"
   },
   "devDependencies": {
-    "rimraf": "^2.6.1",
-    "typescript": "~3.5.2"
+    "rimraf": "^3.0.0",
+    "typescript": "~3.7.3"
   },
   "jupyterlab": {
     "extension": true
