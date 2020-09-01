@@ -24,22 +24,34 @@
     "url": "https://github.com/jtpio/jupyterlab-python-file.git"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib",
-    "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w"
+    "build": "jlpm run build:lib",
+    "build:labextension": "jupyter labextension build .",
+    "build:lib": "tsc",
+    "build:all": "jlpm run build:lib && jlpm run build:labextension",
+    "clean": "jlpm run clean:lib",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:labextension": "rimraf jupyterlab_python_file/static",
+    "clean:all": "jlpm run clean:lib && jlpm run clean:labextension",
+    "eslint": "eslint . --ext .ts,.tsx --fix",
+    "eslint:check": "eslint . --ext .ts,.tsx",
+    "prepare": "jlpm run clean && jlpm run build",
+    "watch": "run-p watch:src watch:labextension",
+    "watch:src": "tsc -w",
+    "watch:labextension": "jupyter labextension watch ."
   },
   "dependencies": {
-    "@jupyterlab/application": "^2.0.0",
-    "@jupyterlab/filebrowser": "^2.0.0",
-    "@jupyterlab/launcher": "^2.0.0",
-    "@jupyterlab/mainmenu": "^2.0.0"
+    "@jupyterlab/application": "^3.0.0-beta.1",
+    "@jupyterlab/filebrowser": "^3.0.0-beta.1",
+    "@jupyterlab/launcher": "^3.0.0-beta.1",
+    "@jupyterlab/mainmenu": "^3.0.0-beta.1"
   },
   "devDependencies": {
+    "@jupyterlab/builder": "^3.0.0-beta.1",
     "rimraf": "^3.0.0",
-    "typescript": "~3.7.3"
+    "typescript": "~4.0.0"
   },
   "jupyterlab": {
-    "extension": true
+    "extension": true,
+    "outputDir": "jupyterlab_python_file/static"
   }
 }

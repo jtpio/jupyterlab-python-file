@@ -3,3 +3,6 @@ lib/
 node_modules/
 *.egg-info/
 .ipynb_checkpoints
+jupyterlab_python_file/static
+__pycache__
+.vscode

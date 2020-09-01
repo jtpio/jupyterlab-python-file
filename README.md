@@ -16,7 +16,7 @@ Create Python Files from JupyterLab
 ## Installation
 
 ```bash
-jupyter labextension install jupyterlab-python-file
+pip install jupyterlab_python_file
 ```
 
 ## Development
@@ -24,15 +24,12 @@ jupyter labextension install jupyterlab-python-file
 For a development install (requires npm version 4 or later), do the following in the repository directory:
 
 ```bash
-npm install
-npm run build
-jupyter labextension install .
+pip install -e .
+jupyter labextension develop --overwrite .
 ```
 
-To rebuild the package and the JupyterLab app:
+To rebuild the package:
 
 ```bash
-npm run build
-jupyter lab build
+jlpm build
 ```
-
