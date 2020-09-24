@@ -1,11 +1,12 @@
 """
 jupyterlab-python-file setup
 """
+import json
 import os
 
 from jupyter_packaging import (
     create_cmdclass, install_npm, ensure_targets,
-    combine_commands, get_version,
+    combine_commands
 )
 import setuptools
 
@@ -15,7 +16,9 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 name="jupyterlab-python-file"
 
 # Get our version
-version = get_version(os.path.join(name, "_version.py"))
+with open(os.path.join(HERE, "package.json")) as pf:
+    pdata = json.load(pf)
+version = pdata['version']
 
 lab_path = os.path.join(HERE, name, "static")
 
