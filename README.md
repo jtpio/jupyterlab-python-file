@@ -1,6 +1,8 @@
 # jupyterlab-python-file
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-python-file/master?urlpath=lab)
+[![PyPI](https://img.shields.io/pypi/v/jupyterlab-python-file.svg)](https://pypi.org/project/jupyterlab-python-file)
+[![npm](https://img.shields.io/npm/v/jupyterlab-python-file.svg)](https://www.npmjs.com/package/jupyterlab-python-file)
 
 Create Python Files from JupyterLab
 
