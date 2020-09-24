@@ -10,12 +10,20 @@ Create Python Files from JupyterLab
 
 ## Prerequisites
 
-- JupyterLab 3.0+
+- JupyterLab 1.0+
 
 ## Installation
 
+Starting from JupyterLab 3.0, the extension can be installed with `pip`:
+
 ```bash
 pip install jupyterlab-python-file
+```
+
+For JupyterLab 1.x and 2.x:
+
+```bash
+jupyter labextension install jupyterlab-python-file
 ```
 
 ## Development
