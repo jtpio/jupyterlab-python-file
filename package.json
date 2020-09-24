@@ -24,22 +24,44 @@
     "url": "https://github.com/jtpio/jupyterlab-python-file.git"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib",
-    "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w"
+    "build": "jlpm run build:lib && jlpm run build:labextension",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc",
+    "clean": "jlpm run clean:lib",
+    "clean:all": "jlpm run clean:lib && jlpm run clean:labextension",
+    "clean:labextension": "rimraf jupyterlab-python-file/static",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "eslint": "eslint . --ext .ts,.tsx --fix",
+    "eslint:check": "eslint . --ext .ts,.tsx",
+    "install:extension": "jupyter labextension develop --overwrite .",
+    "prepare": "jlpm run clean && jlpm run build",
+    "prettier": "prettier --write '**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}'",
+    "prettier:check": "prettier --list-different '**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}'",
+    "watch": "run-p watch:src watch:labextension",
+    "watch:labextension": "jupyter labextension watch .",
+    "watch:src": "tsc -w"
   },
   "dependencies": {
-    "@jupyterlab/application": "^2.0.0",
-    "@jupyterlab/filebrowser": "^2.0.0",
-    "@jupyterlab/launcher": "^2.0.0",
-    "@jupyterlab/mainmenu": "^2.0.0"
+    "@jupyterlab/application": "^3.0.0-rc.0",
+    "@jupyterlab/filebrowser": "^3.0.0-rc.0",
+    "@jupyterlab/launcher": "^3.0.0-rc.0",
+    "@jupyterlab/mainmenu": "^3.0.0-rc.0"
   },
   "devDependencies": {
-    "rimraf": "^3.0.0",
-    "typescript": "~3.7.3"
+    "@jupyterlab/builder": "^3.0.0-rc.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.0"
   },
   "jupyterlab": {
-    "extension": true
+    "extension": true,
+    "outputDir": "jupyterlab-python-file/static"
   }
 }

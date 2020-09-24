@@ -1,7 +1,6 @@
 # jupyterlab-python-file
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-python-file/master?urlpath=lab)
-[![npm](https://img.shields.io/npm/v/jupyterlab-python-file.svg)](https://www.npmjs.com/package/jupyterlab-python-file)
 
 Create Python Files from JupyterLab
 
@@ -11,9 +10,17 @@ Create Python Files from JupyterLab
 
 ## Prerequisites
 
-* JupyterLab 1.0+
+- JupyterLab 1.0+
 
 ## Installation
+
+Starting from JupyterLab 3.0, the extension can be installed with `pip`:
+
+```bash
+pip install jupyterlab-python-file
+```
+
+For JupyterLab 1.x and 2.x:
 
 ```bash
 jupyter labextension install jupyterlab-python-file
@@ -21,18 +28,40 @@ jupyter labextension install jupyterlab-python-file
 
 ## Development
 
-For a development install (requires npm version 4 or later), do the following in the repository directory:
+Note: You will need NodeJS to build the extension package.
+
+The `jlpm` command is JupyterLab's pinned version of
+[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
+`yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
-npm install
-npm run build
-jupyter labextension install .
+# Clone the repo to your local environment
+# Change directory to the jupyterlab-python-file directory
+
+# create a new environment
+conda create -n jupyterlab-python-file -c conda-forge python nodejs -y
+conda activate jupyterlab-python-file
+
+# install the JupyterLab pre-release
+python -m pip install --pre jupyterlab
+
+# Install package in development mode
+pip install -e .
+
+# Link your development version of the extension with JupyterLab
+jupyter labextension develop . --overwrite
+
+# Rebuild extension Typescript source after making changes
+jlpm run build
 ```
 
-To rebuild the package and the JupyterLab app:
+You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
 
 ```bash
-npm run build
-jupyter lab build
+# Watch the source directory in one terminal, automatically rebuilding when needed
+jlpm run watch
+# Run JupyterLab in another terminal
+jupyter lab
 ```
 
+With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).

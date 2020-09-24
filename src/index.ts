@@ -1,5 +1,6 @@
 import {
-  JupyterFrontEnd, JupyterFrontEndPlugin
+  JupyterFrontEnd,
+  JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import { ICommandPalette } from '@jupyterlab/apputils';
@@ -18,25 +19,19 @@ const PALETTE_CATEGORY = 'Text Editor';
 
 namespace CommandIDs {
   export const createNew = 'fileeditor:create-new-python-file';
-};
+}
 
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-python-file',
   autoStart: true,
-  requires: [
-    IFileBrowserFactory,
-  ],
-  optional: [
-    ILauncher,
-    IMainMenu,
-    ICommandPalette,
-  ],
+  requires: [IFileBrowserFactory],
+  optional: [ILauncher, IMainMenu, ICommandPalette],
   activate: (
     app: JupyterFrontEnd,
     browserFactory: IFileBrowserFactory,
     launcher: ILauncher,
     menu: IMainMenu | null,
-    palette: ICommandPalette,
+    palette: ICommandPalette
   ) => {
     const { commands } = app;
 
@@ -48,12 +43,11 @@ const extension: JupyterFrontEndPlugin<void> = {
       iconClass: args => (args['isPalette'] ? '' : ICON_CLASS),
       execute: async args => {
         const cwd = args['cwd'] || browserFactory.defaultBrowser.model.path;
-        const model = await commands
-          .execute('docmanager:new-untitled', {
-            path: cwd,
-            type: 'file',
-            ext: 'py'
-          });
+        const model = await commands.execute('docmanager:new-untitled', {
+          path: cwd,
+          type: 'file',
+          ext: 'py'
+        });
         return commands.execute('docmanager:open', {
           path: model.path,
           factory: FACTORY
@@ -74,7 +68,7 @@ const extension: JupyterFrontEndPlugin<void> = {
     if (palette) {
       palette.addItem({
         command,
-        args: { isPalette: true},
+        args: { isPalette: true },
         category: PALETTE_CATEGORY
       });
     }
