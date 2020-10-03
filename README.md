@@ -2,6 +2,7 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-python-file/master?urlpath=lab)
 [![PyPI](https://img.shields.io/pypi/v/jupyterlab-python-file.svg)](https://pypi.org/project/jupyterlab-python-file)
+[![conda-forge](https://img.shields.io/conda/vn/conda-forge/jupyterlab-python-file.svg)](https://anaconda.org/conda-forge/jupyterlab-python-file)
 [![npm](https://img.shields.io/npm/v/jupyterlab-python-file.svg)](https://www.npmjs.com/package/jupyterlab-python-file)
 
 Create Python Files from JupyterLab
@@ -16,10 +17,19 @@ Create Python Files from JupyterLab
 
 ## Installation
 
-Starting from JupyterLab 3.0, the extension can be installed with `pip`:
+For JupyterLab 3.x, the extension can be installed with `pip`:
 
 ```bash
 pip install jupyterlab-python-file
+```
+
+Or with `conda`:
+
+```bash
+conda install -c conda-forge jupyterlab-python-file
+
+# or with mamba
+mamba install jupyterlab-python-file
 ```
 
 For JupyterLab 1.x and 2.x:
