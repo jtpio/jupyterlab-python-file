@@ -24,25 +24,28 @@ namespace CommandIDs {
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-python-file',
   autoStart: true,
-  requires: [IFileBrowserFactory],
-  optional: [ILauncher, IMainMenu, ICommandPalette],
+  optional: [IFileBrowserFactory, ILauncher, IMainMenu, ICommandPalette],
   activate: (
     app: JupyterFrontEnd,
-    browserFactory: IFileBrowserFactory,
-    launcher: ILauncher,
+    browserFactory: IFileBrowserFactory | null,
+    launcher: ILauncher | null,
     menu: IMainMenu | null,
     palette: ICommandPalette
   ) => {
-    const { commands } = app;
+    const { commands, contextMenu } = app;
 
     const command = CommandIDs.createNew;
 
     commands.addCommand(command, {
-      label: args => (args['isPalette'] ? 'New Python File' : 'Python File'),
+      label: args =>
+        args['isPalette'] || args['isContextMenu']
+          ? 'New Python File'
+          : 'Python File',
       caption: 'Create a new Python file',
       iconClass: args => (args['isPalette'] ? '' : ICON_CLASS),
       execute: async args => {
-        const cwd = args['cwd'] || browserFactory.defaultBrowser.model.path;
+        const cwd =
+          args['cwd'] ?? browserFactory?.defaultBrowser.model.path ?? undefined;
         const model = await commands.execute('docmanager:new-untitled', {
           path: cwd,
           type: 'file',
@@ -53,6 +56,15 @@ const extension: JupyterFrontEndPlugin<void> = {
           factory: FACTORY
         });
       }
+    });
+
+    // add to the file browser context menu
+    const selectorContent = '.jp-DirListing-content';
+    contextMenu.addItem({
+      command,
+      args: { isContextMenu: true },
+      selector: selectorContent,
+      rank: 3
     });
 
     // add to the launcher
