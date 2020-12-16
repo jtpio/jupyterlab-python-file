@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-python-file",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Create Python Files from JupyterLab",
   "keywords": [
     "jupyter",
