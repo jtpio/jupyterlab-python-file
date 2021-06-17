@@ -1,17 +1,17 @@
 
 import json
-import os.path as osp
+from pathlib import Path
 
-HERE = osp.abspath(osp.dirname(__file__))
+from ._version import __version__
 
-with open(osp.join(HERE, 'static', 'package.json')) as fid:
+HERE = Path(__file__).parent.resolve()
+
+with (HERE / "labextension" / "package.json").open() as fid:
     data = json.load(fid)
 
 def _jupyter_labextension_paths():
     return [{
-        'src': 'static',
-        'dest': data['name']
+        "src": "labextension",
+        "dest": data["name"]
     }]
-
-
 
