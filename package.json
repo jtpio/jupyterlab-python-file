@@ -12,7 +12,10 @@
     "url": "https://github.com/jtpio/jupyterlab-python-file/issues"
   },
   "license": "BSD-3-Clause",
-  "author": "Jeremy Tuloup",
+  "author": {
+    "name": "Jeremy Tuloup",
+    "email": ""
+  },
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
     "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
