@@ -76,6 +76,6 @@
         "jlpm"
       ]
     }
-  }
+  },
   "styleModule": "style/index.js"
 }
