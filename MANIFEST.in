@@ -10,7 +10,7 @@ include ts*.json
 include yarn.lock
 include *.md
 
-graft jupyterlab-python-file/labextension
+graft jupyterlab_python_file/labextension
 
 # Javascript files
 graft src
