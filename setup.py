@@ -10,8 +10,9 @@ HERE = Path(__file__).parent.resolve()
 
 # The name of the project
 name = "jupyterlab-python-file"
+package = name.replace('-', '_')
 
-lab_path = HERE / name / "labextension"
+lab_path = HERE / package / "labextension"
 
 # Representative files that should exist after a successful build
 ensured_targets = [
@@ -19,11 +20,9 @@ ensured_targets = [
     str(lab_path / "static/style.js")
 ]
 
-labext_name = "jupyterlab-python-file"
-
 data_files_spec = [
-    ("share/jupyter/labextensions/%s" % labext_name, str(lab_path), "**"),
-    ("share/jupyter/labextensions/%s" % labext_name, str(HERE), "install.json"),
+    ("share/jupyter/labextensions/%s" % name, str(lab_path), "**"),
+    ("share/jupyter/labextensions/%s" % name, str(HERE), "install.json"),
 ]
 
 long_description = (HERE / "README.md").read_text()
