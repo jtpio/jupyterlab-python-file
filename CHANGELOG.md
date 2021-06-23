@@ -2,6 +2,22 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.5.5
+
+([Full Changelog](https://github.com/jtpio/jupyterlab-python-file/compare/v0.5.4...d773bd7f00ad383aeb519616192b96be9c65dc59))
+
+### Maintenance and upkeep improvements
+
+- Remove explicit CSS import [#45](https://github.com/jtpio/jupyterlab-python-file/pull/45) ([@jtpio](https://github.com/jtpio))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/jtpio/jupyterlab-python-file/graphs/contributors?from=2021-06-23&to=2021-06-23&type=c))
+
+[@jtpio](https://github.com/search?q=repo%3Ajtpio%2Fjupyterlab-python-file+involves%3Ajtpio+updated%3A2021-06-23..2021-06-23&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.5.4
 
 ([Full Changelog](https://github.com/jtpio/jupyterlab-python-file/compare/v0.5.3...21c9459e053c9222fd8cc33f93a7c2471af44d28))
@@ -15,8 +31,6 @@
 ([GitHub contributors page for this release](https://github.com/jtpio/jupyterlab-python-file/graphs/contributors?from=2021-06-21&to=2021-06-23&type=c))
 
 [@jtpio](https://github.com/search?q=repo%3Ajtpio%2Fjupyterlab-python-file+involves%3Ajtpio+updated%3A2021-06-21..2021-06-23&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.5.3
 
