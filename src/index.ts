@@ -11,8 +11,6 @@ import { IFileBrowserFactory } from '@jupyterlab/filebrowser';
 
 import { IMainMenu } from '@jupyterlab/mainmenu';
 
-import '../style/index.css';
-
 const FACTORY = 'Editor';
 const ICON_CLASS = 'jp-PythonIcon';
 const PALETTE_CATEGORY = 'Text Editor';
