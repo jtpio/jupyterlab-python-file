@@ -2,6 +2,22 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.5.4
+
+([Full Changelog](https://github.com/jtpio/jupyterlab-python-file/compare/v0.5.3...21c9459e053c9222fd8cc33f93a7c2471af44d28))
+
+### Merged PRs
+
+- Add `publishConfig` to `package.json` [#43](https://github.com/jtpio/jupyterlab-python-file/pull/43) ([@jtpio](https://github.com/jtpio))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/jtpio/jupyterlab-python-file/graphs/contributors?from=2021-06-21&to=2021-06-23&type=c))
+
+[@jtpio](https://github.com/search?q=repo%3Ajtpio%2Fjupyterlab-python-file+involves%3Ajtpio+updated%3A2021-06-21..2021-06-23&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.5.3
 
 ([Full Changelog](https://github.com/jtpio/jupyterlab-python-file/compare/0.5.2...baeb9b7efe84ee65ea263bcd9efe9591c1d3263c))
@@ -24,8 +40,6 @@
 ([GitHub contributors page for this release](https://github.com/jtpio/jupyterlab-python-file/graphs/contributors?from=2020-12-16&to=2021-06-21&type=c))
 
 [@dependabot](https://github.com/search?q=repo%3Ajtpio%2Fjupyterlab-python-file+involves%3Adependabot+updated%3A2020-12-16..2021-06-21&type=Issues) | [@jtpio](https://github.com/search?q=repo%3Ajtpio%2Fjupyterlab-python-file+involves%3Ajtpio+updated%3A2020-12-16..2021-06-21&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.5.2
 
