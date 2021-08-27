@@ -1,5 +1,11 @@
 # jupyterlab-python-file
 
+**Archived**
+
+This project is archived. JupyterLab 3.1+ now supports creating new Python files:
+
+![image](https://user-images.githubusercontent.com/591645/131118479-6587edbd-82d1-4fb4-a025-82ee7b9c62b2.png)
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jtpio/jupyterlab-python-file/main?urlpath=lab)
 [![PyPI](https://img.shields.io/pypi/v/jupyterlab-python-file.svg)](https://pypi.org/project/jupyterlab-python-file)
 [![conda-forge](https://img.shields.io/conda/vn/conda-forge/jupyterlab-python-file.svg)](https://anaconda.org/conda-forge/jupyterlab-python-file)
