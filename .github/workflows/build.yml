@@ -5,6 +5,10 @@ on:
     branches: main
   pull_request:
     branches: '*'
+    
+permissions:
+  contents:
+    write
 
 jobs:
   build:
@@ -67,6 +71,11 @@ jobs:
       with:
         name: myextension-sdist
         path: myextension.tar.gz
+        
+    - name: Check Release
+      uses: jupyter-server/jupyter_releaser/.github/actions/check-release@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
   test_isolated:
     needs: build
@@ -93,3 +102,4 @@ jobs:
         pip install jupyterlab
         jupyter labextension list 2>&1 | grep -ie "jupyterlab-python-file.*OK"
         python -m jupyterlab.browser_check --no-chrome-test
+    
